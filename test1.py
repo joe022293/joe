@@ -8,7 +8,7 @@ import os
 
 folder_path = 'folder'
 
-
+try:
 # 遍历文件夹中的所有文件
 for filename in os.listdir(folder_path):
     # 处理 PDF 文件
@@ -194,5 +194,6 @@ if st.button('Generate Download Link'):
     for j in range(len(begin_list)):
         href = f'<a href="data:application/pdf;base64,{pdf_list[j]}" download="{begin_list[j]}to{final_list[j]}.pdf">Click here to download PDF</a>'
         st.markdown(href, unsafe_allow_html=True)
-
+except Exception as e:
+    st.error(e)
 
