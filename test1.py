@@ -166,29 +166,31 @@ try:
     # Convert the PDF data to base64
         pdf_base64 = base64.b64encode(pdf_data).decode('utf-8')
         return pdf_base64
+
+
     
     if st.button('confirm'):
         temp1=input.split(',')
-    begin_list=[]
-    final_list=[]
-    pdf_list=[]
-    for i in temp1:
-        if len(i)==8 and i.isdigit():
-            begin=i
-            final=i
-            begin_list.append(begin)
-            final_list.append(final)
-            pdf_list.append(create_pdf(begin,final))
-        elif '-' in i:
-            i_split=i.split('-')
-            if len(i_split) == 2 and i_split[0].isdigit() and len(i_split[0]) == 8 and i_split[1].isdigit() and len(i_split[1]) == 8:
-                begin=temp2[0]
-                final=temp2[1]
+        begin_list=[]
+        final_list=[]
+        pdf_list=[]
+        for i in temp1:
+            if len(i)==8 and i.isdigit():
+                begin=i
+                final=i
                 begin_list.append(begin)
                 final_list.append(final)
                 pdf_list.append(create_pdf(begin,final))
-            else:
-                st.write('error')
+            elif '-' in i:
+                i_split=i.split('-')
+                if len(i_split) == 2 and i_split[0].isdigit() and len(i_split[0]) == 8 and i_split[1].isdigit() and len(i_split[1]) == 8:
+                    begin=temp2[0]
+                    final=temp2[1]
+                    begin_list.append(begin)
+                    final_list.append(final)
+                    pdf_list.append(create_pdf(begin,final))
+                else:
+                    st.write('error')
 
     # Create a download button
     st.write("")
