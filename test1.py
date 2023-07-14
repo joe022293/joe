@@ -17,9 +17,6 @@ try:
             os.remove(file_path)  # 删除文件
     
     
-    
-    
-    
     input = st.text_input("input:(ex:44220001,42230001-44230010")
 
     def create_pdf(begin,final):
@@ -186,7 +183,7 @@ try:
                 pdf_list.append(create_pdf(begin,final))
             elif '-' in i:
                 i_split=i.split('-')
-                if len(i_split) == 2 and i_split[0].isdigit() and len(i_split[0]) == 8 and i_split[1].isdigit() and len(i_split[1]) == 8:
+                if len(i_split) == 2 and i_split[0].isdigit() and len(i_split[0]) == 8 and i_split[1].isdigit() and len(i_split[1]) == 8 and i_split[0][:2]==i_split[1][:2]:
                     begin=i_split[0]
                     final=i_split[1]
                     begin_list.append(begin)
@@ -194,6 +191,8 @@ try:
                     pdf_list.append(create_pdf(begin,final))
                 else:
                     st.write('error')
+            else:
+                st.write('error')
         
             # Generate download link
         for j in range(len(begin_list)):
