@@ -20,29 +20,8 @@ try:
     
     merger = PdfFileMerger()
     input = st.text_input("input:(ex:44220001,42230001-44230010")
-    if st.button('confirm'):
-        temp1=input.split(',')
-    begin_list=[]
-    final_list=[]
-    pdf_list=[]
-    for i in temp1:
-        if len(i)==8 and i.isdigit():
-            begin=i
-            final=i
-            begin_list.append(begin)
-            final_list.append(final)
-            pdf_list.append(create_pdf(begin,final))
-        elif '-' in i:
-            temp2=i.split('-')
-            if len(num_split) == 2 and num_split[0].isdigit() and len(num_split[0]) == 8 and num_split[1].isdigit() and len(num_split[1]) == 8:
-                begin=temp2[0]
-                final=temp2[1]
-                begin_list.append(begin)
-                final_list.append(final)
-                pdf_list.append(create_pdf(begin,final))
-            else:
-                st.write('error')
-    def create_pdf(begin,final):
+
+        def create_pdf(begin,final):
         # 提取前两位数字
         begin_prefix = begin[:2]
         final_prefix = final[:2]
@@ -187,6 +166,30 @@ try:
     # Convert the PDF data to base64
         pdf_base64 = base64.b64encode(pdf_data).decode('utf-8')
         return pdf_base64
+    
+    if st.button('confirm'):
+        temp1=input.split(',')
+    begin_list=[]
+    final_list=[]
+    pdf_list=[]
+    for i in temp1:
+        if len(i)==8 and i.isdigit():
+            begin=i
+            final=i
+            begin_list.append(begin)
+            final_list.append(final)
+            pdf_list.append(create_pdf(begin,final))
+        elif '-' in i:
+            temp2=i.split('-')
+            if len(num_split) == 2 and num_split[0].isdigit() and len(num_split[0]) == 8 and num_split[1].isdigit() and len(num_split[1]) == 8:
+                begin=temp2[0]
+                final=temp2[1]
+                begin_list.append(begin)
+                final_list.append(final)
+                pdf_list.append(create_pdf(begin,final))
+            else:
+                st.write('error')
+
     # Create a download button
     st.write("")
     if st.button('Generate Download Link'):
