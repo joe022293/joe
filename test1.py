@@ -137,6 +137,7 @@ try:
             i=i+1
     
         i = 0
+        st.write(begin)
         st.write('0001')
         while begin_num + i <= final_num and tp == 0:
             # 将PDF文件添加到合并器中
