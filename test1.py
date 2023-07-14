@@ -181,6 +181,7 @@ try:
                 begin_list.append(begin)
                 final_list.append(final)
                 pdf_list.append(create_pdf(begin,final))
+                st.write(begin_list)
             elif '-' in i:
                 i_split=i.split('-')
                 if len(i_split) == 2 and i_split[0].isdigit() and len(i_split[0]) == 8 and i_split[1].isdigit() and len(i_split[1]) == 8:
