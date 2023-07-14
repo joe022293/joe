@@ -140,22 +140,17 @@ try:
             i=i+1
     
         i = 0
-        st.write(begin)
-        st.write('0001')
         while begin_num + i <= final_num and tp == 0:
             # 将PDF文件添加到合并器中
             merger.append(f"{begin_num+i}.pdf")
             i = i + 1
     
-        st.write('0002')
         # 合并所有PDF文件
         merger_filename = f"{begin}to{final}.pdf"
         merger.write(merger_filename)
-        st.write('0003')
         merger.close()
         if begin_num!=0:
             print("PDF files merged successfully into", merger_filename)
-        st.write('0004')
     
         i=0
         if begin_num!=0 and tp==0:
@@ -173,10 +168,11 @@ try:
         return pdf_base64
 
 
-    begin_list=[]
-    final_list=[]
-    pdf_list=[]
+    
     if st.button('confirm'):
+        begin_list=[]
+        final_list=[]
+        pdf_list=[]
         temp1=input.split(',')
         for i in temp1:
             #st.write(i)
@@ -186,7 +182,7 @@ try:
                 begin_list.append(begin)
                 final_list.append(final)
                 pdf_list.append(create_pdf(begin,final))
-                #st.write(begin_list)
+                st.write(begin_list)
             elif '-' in i:
                 i_split=i.split('-')
                 if len(i_split) == 2 and i_split[0].isdigit() and len(i_split[0]) == 8 and i_split[1].isdigit() and len(i_split[1]) == 8:
