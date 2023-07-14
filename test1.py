@@ -9,7 +9,8 @@ import os
 folder_path = 'folder'
 
 try:
-# 遍历文件夹中的所有文件
+    # 遍历文件夹中的所有文件
+    '''
     for filename in os.listdir(folder_path):
         # 处理 PDF 文件
         if filename.endswith('.pdf'):
@@ -19,9 +20,18 @@ try:
     
     
     merger = PdfFileMerger()
+    '''
     input = st.text_input("input:(ex:44220001,42230001-44230010")
 
     def create_pdf(begin,final):
+        # 遍历文件夹中的所有文件
+        for filename in os.listdir(folder_path):
+        # 处理 PDF 文件
+        if filename.endswith('.pdf'):
+            file_path = os.path.join(folder_path, filename)
+            os.remove(file_path)  # 删除文件
+            
+        merger = PdfFileMerger()
         # 提取前两位数字
         begin_prefix = begin[:2]
         final_prefix = final[:2]
