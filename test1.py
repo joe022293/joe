@@ -148,6 +148,7 @@ try:
         st.write('0002')
         # 合并所有PDF文件
         merger_filename = f"{begin}to{final}.pdf"
+        st.write('9999')
         merger.write(merger_filename)
         st.write('0003')
         merger.close()
