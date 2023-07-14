@@ -198,6 +198,7 @@ try:
         for j in range(len(begin_list)):
             href = f'<a href="data:application/pdf;base64,{pdf_list[j]}" download="{begin_list[j]}to{final_list[j]}.pdf">Click here to download PDF</a>'
             st.markdown(href, unsafe_allow_html=True)
+        st.write('ok')
 except Exception as e:
     st.error(e)
 
