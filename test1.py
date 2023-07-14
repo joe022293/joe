@@ -18,11 +18,13 @@ try:
     
     
     
-    merger = PdfFileMerger()
+    
     
     input = st.text_input("input:(ex:44220001,42230001-44230010")
 
     def create_pdf(begin,final):
+
+        merger = PdfFileMerger()
         # 提取前两位数字
         begin_prefix = begin[:2]
         final_prefix = final[:2]
@@ -148,7 +150,6 @@ try:
         st.write('0002')
         # 合并所有PDF文件
         merger_filename = f"{begin}to{final}.pdf"
-        st.write('9999')
         merger.write(merger_filename)
         st.write('0003')
         merger.close()
