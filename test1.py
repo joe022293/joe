@@ -168,12 +168,11 @@ try:
         return pdf_base64
 
 
-    
+    begin_list=[]
+    final_list=[]
+    pdf_list=[]
     if st.button('confirm'):
         temp1=input.split(',')
-        begin_list=[]
-        final_list=[]
-        pdf_list=[]
         for i in temp1:
             if len(i)==8 and i.isdigit():
                 begin=i
