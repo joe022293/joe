@@ -190,16 +190,9 @@ def create_pdf(begin,final):
 # Create a download button
 st.write("")
 if st.button('Generate Download Link'):
-    if begin_num!=0 and final_num!=0:
         # Generate download link
-        for j in range(len(begin_list)):
-            href = f'<a href="data:application/pdf;base64,{pdf_list[j]}" download="{begin_list[j]}to{final_list[j]}.pdf">Click here to download PDF</a>'
-            st.markdown(href, unsafe_allow_html=True)
+    for j in range(len(begin_list)):
+        href = f'<a href="data:application/pdf;base64,{pdf_list[j]}" download="{begin_list[j]}to{final_list[j]}.pdf">Click here to download PDF</a>'
+        st.markdown(href, unsafe_allow_html=True)
 
-import os
-if begin_num==0 and final_num==0:
-    os.remove("to.pdf")
-elif begin_num!=0 and final_num==0:
-    os.remove(f"{begin}to.pdf")
-elif begin_num==0 and final_num!=0:
-    os.remove(f"to{final}.pdf")
+
