@@ -21,7 +21,7 @@ try:
     merger = PdfFileMerger()
     input = st.text_input("input:(ex:44220001,42230001-44230010")
 
-        def create_pdf(begin,final):
+    def create_pdf(begin,final):
         # 提取前两位数字
         begin_prefix = begin[:2]
         final_prefix = final[:2]
