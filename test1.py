@@ -171,11 +171,10 @@ try:
     begin_list=[]
     final_list=[]
     pdf_list=[]
-    temp1=[]
     if st.button('confirm'):
-        temp1.extend(input.split(','))
-        st.write(temp1)
-        for i in temp1:
+        temp1=input.split(',')
+        st.write(temp1.value())
+        for i in temp1.value():
             if len(i)==8 and i.isdigit():
                 begin=i
                 final=i
