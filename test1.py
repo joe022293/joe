@@ -168,11 +168,11 @@ try:
         return pdf_base64
 
 
-    
+    begin_list=list(begin_list)
+    final_list=list(final_list)
+    pdf_list=list(pdf_list)
     if st.button('confirm'):
-        begin_list=[]
-        final_list=[]
-        pdf_list=[]
+        
         temp1=input.split(',')
         for i in temp1:
             #st.write(i)
