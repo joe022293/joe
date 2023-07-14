@@ -168,11 +168,14 @@ try:
         return pdf_base64
 
 
-    begin_list=list(begin_list)
-    final_list=list(final_list)
-    pdf_list=list(pdf_list)
-    if st.button('confirm'):
-        
+    begin_list=[]
+    final_list=[]
+    pdf_list=[]
+
+
+    # Create a download button
+    st.write("")
+    if st.button('Generate Download Link'):
         temp1=input.split(',')
         for i in temp1:
             #st.write(i)
@@ -193,10 +196,9 @@ try:
                     pdf_list.append(create_pdf(begin,final))
                 else:
                     st.write('error')
+        
 
-    # Create a download button
-    st.write("")
-    if st.button('Generate Download Link'):
+        
             # Generate download link
         st.write(begin_list)
         for j in range(len(begin_list)):
