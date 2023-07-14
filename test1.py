@@ -173,6 +173,7 @@ try:
     pdf_list=[]
     if st.button('confirm'):
         temp1=input.split(',')
+        st.write(temp1)
         for i in temp1:
             if len(i)==8 and i.isdigit():
                 begin=i
