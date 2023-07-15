@@ -171,7 +171,7 @@ try:
 
     # Create a download button
     st.write("")
-    if st.button('Generate Download Link'):
+    if st.button('Generate'):
         temp1=input.split(',')
         for i in temp1:
             if len(i)==8 and i.isdigit():
@@ -195,7 +195,7 @@ try:
         
             # Generate download link
         for j in range(len(begin_list)):
-            href = f'<a href="data:application/pdf;base64,{pdf_list[j]}" download="{begin_list[j]}-{final_list[j]}.pdf">Click here to download PDF</a>'
+            href = f'<a href="data:application/pdf;base64,{pdf_list[j]}" download="{begin_list[j]}-{final_list[j]}.pdf">Download PDF</a>'
             st.markdown(href, unsafe_allow_html=True)
 except Exception as e:
     st.error(e)
