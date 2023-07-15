@@ -7,7 +7,6 @@ import base64
 import os
 
 folder_path = 'folder'
-
 try:
     # 遍历文件夹中的所有文件
     for filename in os.listdir(folder_path):
@@ -17,7 +16,7 @@ try:
             os.remove(file_path)  # 删除文件
     
     
-    input = st.text_input("input:(ex:44220001,42230001-44230010")
+    input = st.text_input("Registration QR codes(e.g. 42220001,44230010-44230020,45210001)")
 
     def create_pdf(begin,final):
 
