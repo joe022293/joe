@@ -189,9 +189,9 @@ try:
                     final_list.append(final)
                     pdf_list.append(create_pdf(begin,final))
                 else:
-                    st.write(f'Wrong serial number!{i_split[0]}-{i_split[1]}')
+                    st.write(f'Wrong serial number: {i_split[0]}-{i_split[1]}')
             else:
-                st.write(f'Wrong serial number!{i}')
+                st.write(f'Wrong serial number: {i}')
         
             # Generate download link
         for j in range(len(begin_list)):
