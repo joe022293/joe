@@ -196,7 +196,7 @@ try:
                         final_list.append(final)
                         pdf_list.append(create_pdf(begin,final))
                     else:
-                        st.write('Exceeding the maximum of 200 serial numbers!')
+                        st.write(f'Exceeding the maximum of 200 serial numbers: {i_split[0]}-{i_split[1]}')
                 else:
                     st.write(f'Wrong serial number: {i_split[0]}-{i_split[1]}')
             else:
