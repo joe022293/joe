@@ -5,7 +5,7 @@ from PyPDF2 import PdfFileMerger
 import streamlit as st
 import base64
 import os
-
+first_list=['42','44','45','46']
 folder_path = 'folder'
 try:
     # 遍历文件夹中的所有文件
@@ -174,7 +174,7 @@ try:
     if st.button('Generate'):
         temp1=input.split(',')
         for i in temp1:
-            if len(i)==8 and i.isdigit():
+            if len(i)==8 and i.isdigit() and i[:2] in first_list:
                 begin=i
                 final=i
                 begin_list.append(begin)
@@ -182,7 +182,7 @@ try:
                 pdf_list.append(create_pdf(begin,final))
             elif '-' in i:
                 i_split=i.split('-')
-                if len(i_split) == 2 and i_split[0].isdigit() and len(i_split[0]) == 8 and i_split[1].isdigit() and len(i_split[1]) == 8 and i_split[0][:4]==i_split[1][:4]:
+                if len(i_split) == 2 and i_split[0].isdigit() and len(i_split[0]) == 8 and i_split[1].isdigit() and len(i_split[1]) == 8 and i_split[0][:4]==i_split[1][:4] and i_split[0][:2] in first_listand:
                     begin=i_split[0]
                     final=i_split[1]
                     begin_list.append(begin)
