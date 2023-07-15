@@ -196,10 +196,10 @@ try:
             # Generate download link
         for j in range(len(begin_list)):
             if begin_list[j]!=final_list[j]:
-                href = f'<a href="data:application/pdf;base64,{pdf_list[j]}" download="{begin_list[j]}-{final_list[j]}.pdf">Download PDF</a>'
+                href = f'<a href="data:application/pdf;base64,{pdf_list[j]}" download="{begin_list[j]}-{final_list[j]}.pdf">Download {begin_list[j]}-{final_list[j]}.pdf</a>'
                 st.markdown(href, unsafe_allow_html=True)
             else:
-                href = f'<a href="data:application/pdf;base64,{pdf_list[j]}" download="{begin_list[j]}.pdf">Download PDF</a>'
+                href = f'<a href="data:application/pdf;base64,{pdf_list[j]}" download="{begin_list[j]}.pdf">Download {begin_list[j]}.pdf</a>'
                 st.markdown(href, unsafe_allow_html=True)
 except Exception as e:
     st.error(e)
