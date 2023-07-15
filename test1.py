@@ -142,7 +142,7 @@ try:
             i = i + 1
     
         # 合并所有PDF文件
-        merger_filename = f"{begin}to{final}.pdf"
+        merger_filename = f"{begin}-{final}.pdf"
         merger.write(merger_filename)
         merger.close()
         if begin_num!=0:
@@ -156,7 +156,7 @@ try:
                 i=i+1
     
     
-        with open(f'{begin}to{final}.pdf', 'rb') as file:
+        with open(f'{begin}-{final}.pdf', 'rb') as file:
             pdf_data = file.read()
     
     # Convert the PDF data to base64
@@ -195,7 +195,7 @@ try:
         
             # Generate download link
         for j in range(len(begin_list)):
-            href = f'<a href="data:application/pdf;base64,{pdf_list[j]}" download="{begin_list[j]}to{final_list[j]}.pdf">Click here to download PDF</a>'
+            href = f'<a href="data:application/pdf;base64,{pdf_list[j]}" download="{begin_list[j]}-{final_list[j]}.pdf">Click here to download PDF</a>'
             st.markdown(href, unsafe_allow_html=True)
 except Exception as e:
     st.error(e)
