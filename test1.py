@@ -182,7 +182,7 @@ try:
                 pdf_list.append(create_pdf(begin,final))
             elif '-' in i:
                 i_split=i.split('-')
-                if len(i_split) == 2 and i_split[0].isdigit() and len(i_split[0]) == 8 and i_split[1].isdigit() and len(i_split[1]) == 8 and i_split[0][:4]==i_split[1][:4] and i_split[0][:2] in first_listand:
+                if len(i_split) == 2 and i_split[0].isdigit() and len(i_split[0]) == 8 and i_split[1].isdigit() and len(i_split[1]) == 8 and i_split[0][:4]==i_split[1][:4] and i_split[0][:2] in first_list:
                     begin=i_split[0]
                     final=i_split[1]
                     begin_list.append(begin)
