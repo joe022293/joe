@@ -183,11 +183,20 @@ try:
             elif '-' in i:
                 i_split=i.split('-')
                 if len(i_split) == 2 and i_split[0].isdigit() and len(i_split[0]) == 8 and i_split[1].isdigit() and len(i_split[1]) == 8 and i_split[0][:4]==i_split[1][:4] and i_split[0][:2] in first_list:
-                    begin=i_split[0]
-                    final=i_split[1]
-                    begin_list.append(begin)
-                    final_list.append(final)
-                    pdf_list.append(create_pdf(begin,final))
+                    if int(i_split[1])-int(i_spit[0])<=200 and int(i_split[1])-int(i_spit[0])>0:
+                        begin=i_split[0]
+                        final=i_split[1]
+                        begin_list.append(begin)
+                        final_list.append(final)
+                        pdf_list.append(create_pdf(begin,final))
+                    elif int(i_split[0])-int(i_spit[1])<=200 and int(i_split[1])-int(i_spit[0])<=0:
+                        begin=i_split[1]
+                        final=i_split[0]
+                        begin_list.append(begin)
+                        final_list.append(final)
+                        pdf_list.append(create_pdf(begin,final))
+                    else:
+                        st.write('Exceeding the maximum of 200 serial numbers!')
                 else:
                     st.write(f'Wrong serial number: {i_split[0]}-{i_split[1]}')
             else:
