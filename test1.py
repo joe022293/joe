@@ -40,17 +40,17 @@ try:
                 tp=1
         elif len(begin)>=29:
             begin_prefix = begin[13:16]
-            if begin_prefix == '057'
+            if begin_prefix == '057':
                 ModelName = "MTS156"
-            elif begin_prefix == '286'
+            elif begin_prefix == '286':
                 ModelName = "MTS101"
-            elif begin_prefix == '132'
+            elif begin_prefix == '132':
                 ModelName = "MVR"
-            elif begin_prefix == '156'
+            elif begin_prefix == '156':
                 ModelName = "MVC Pro SDI to HDMI"
-            elif begin_prefix == '101'
+            elif begin_prefix == '101':
                 ModelName = "MVR Pro"
-            elif begin_prefix == '033'
+            elif begin_prefix == '033':
                 ModelName = "MVR Lite"
             else:
                 tp=1
