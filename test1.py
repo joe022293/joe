@@ -21,24 +21,39 @@ try:
     def create_pdf(begin,final):
 
         merger = PdfFileMerger()
-        # 提取前两位数字
-        begin_prefix = begin[:2]
-        final_prefix = final[:2]
-        ModelName = ""
         tp=0
-    
-        if begin_prefix == '42':
-            ModelName = "MVR Lite"
-        elif begin_prefix == '44':
-            ModelName = "MVR Pro"
-        elif begin_prefix == '45':
-            ModelName = "MVC Pro SDI to HDMI"
-        elif begin_prefix == '46':
-            ModelName = "MVR"
-        else:
-            #print("wrong")
-            tp=1
-    
+        ModelName = ""
+        if len(begin)==8:
+            # 提取前两位数字
+            begin_prefix = begin[:2]
+            
+            if begin_prefix == '42':
+                ModelName = "MVR Lite"
+            elif begin_prefix == '44':
+                ModelName = "MVR Pro"
+            elif begin_prefix == '45':
+                ModelName = "MVC Pro SDI to HDMI"
+            elif begin_prefix == '46':
+                ModelName = "MVR"
+            else:
+                #print("wrong")
+                tp=1
+        elif len(begin)>=29:
+            begin_prefix = begin[13:16]
+            if begin_prefix == '057'
+                ModelName = "MTS156"
+            elif begin_prefix == '286'
+                ModelName = "MTS101"
+            elif begin_prefix == '132'
+                ModelName = "MVR"
+            elif begin_prefix == '156'
+                ModelName = "MVC Pro SDI to HDMI"
+            elif begin_prefix == '101'
+                ModelName = "MVR Pro"
+            elif begin_prefix == '033'
+                ModelName = "MVR Lite"
+            else:
+                tp=1
         #print("ModelName:", ModelName)
     
     
@@ -174,7 +189,7 @@ try:
     if st.button('Generate'):
         temp1=input.split(',')
         for i in temp1:
-            if len(i)==8 and i.isdigit() and i[:2] in first_list:
+            if (len(i)==8 or len(i)>=29) and i.isdigit() and (i[:2] in first_list or i[0:13]=='0100859151005'):
                 begin=i
                 final=i
                 begin_list.append(begin)
@@ -182,7 +197,7 @@ try:
                 pdf_list.append(create_pdf(begin,final))
             elif '-' in i:
                 i_split=i.split('-')
-                if len(i_split) == 2 and i_split[0].isdigit() and len(i_split[0]) == 8 and i_split[1].isdigit() and len(i_split[1]) == 8 and i_split[0][:4]==i_split[1][:4] and i_split[0][:2] in first_list:
+                if len(i_split) == 2 and i_split[0].isdigit() and (len(i_split[0]) == 8 or len(i_split[0])>=29) and i_split[1].isdigit() and (len(i_split[1]) == 8 or len(i_split[1])>=29) and ((i_split[0][:4]==i_split[1][:4] and i_split[0][:2] in first_list) or i_split[0][0:13]=='0100859151005'):
                     if int(i_split[1])-int(i_split[0])<=200 and int(i_split[1])-int(i_split[0])>0:
                         begin=i_split[0]
                         final=i_split[1]
