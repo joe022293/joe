@@ -114,7 +114,7 @@ try:
             pdf.setFont("Helvetica", 32)
             pdf.drawString(text_x, text_y - 50*5, "Unlock 2 Months of Extra Warranty")
         
-            pdf.setFont("Helvetica", 12)
+            pdf.setFont("Helvetica", 13)
             pdf.drawString(text_x, text_y - 50*6.5, "Scan the QR Code to register your new")
             pdf.drawString(text_x, text_y - 50*6.5-20, f"MediCapture {ModelName}")
             pdf.drawString(text_x, text_y - 50*6.5-20*3, "or browse to the link below:")
