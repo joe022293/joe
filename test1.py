@@ -1,50 +1,48 @@
-from reportlab.pdfgen import canvas
-from PIL import Image
-import qrcode
-from PyPDF2 import PdfFileMerger
-import streamlit as st
-import base64
-import os
-from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.ttfonts import TTFont
+# ...（之前的代码部分）
 
-first_list = ['42', '44', '45', '46']
-folder_path = 'folder'
-try:
-    # 遍历文件夹中的所有文件
-    for filename in os.listdir(folder_path):
-        # 处理 PDF 文件
-        if filename.endswith('.pdf'):
-            file_path = os.path.join(folder_path, filename)
-            os.remove(file_path)  # 删除文件
+def create_pdf(begin, final):
+    merger = PdfFileMerger()
+    # 提取前两位数字
+    begin_prefix = begin[:2]
+    final_prefix = final[:2]
+    ModelName = ""
+    tp = 0
 
-    st.title('Registration QR codes')
-    input_i = st.text_input("Input serial numbers (e.g. 42220001,44230010-44230020,45210001)")
-    input = input_i.replace(" ", "")
+    if begin_prefix == '42':
+        ModelName = "MVR Lite"
+    elif begin_prefix == '44':
+        ModelName = "MVR Pro"
+    elif begin_prefix == '45':
+        ModelName = "MVC Pro SDI to HDMI"
+    elif begin_prefix == '46':
+        ModelName = "MVR"
+    else:
+        # print("wrong")
+        tp = 1
 
-    # 注册Montserrat字体
-    pdfmetrics.registerFont(TTFont('Montserrat', 'Montserrat-Regular.ttf'))
+    begin_num = int(begin)
+    final_num = int(final)
 
-    def create_pdf(begin, final):
-        merger = PdfFileMerger()
-        # ... (之后的代码保持不变)
-        
-        i = 0
-        while begin_num + i <= final_num and tp == 0:
-            # ... (之后的代码保持不变)
+    # ...（后续的代码部分）
 
-        with open(f'{begin}-{final}.pdf', 'rb') as file:
+    i = 0
+    while begin_num + i <= final_num and tp == 0:
+        # ...（后续的代码部分）
+
+        with open(f'{begin_num + i}.pdf', 'rb') as file:
             pdf_data = file.read()
 
         # Convert the PDF data to base64
         pdf_base64 = base64.b64encode(pdf_data).decode('utf-8')
         return pdf_base64
 
-    begin_list = []
-    final_list = []
-    pdf_list = []
+    # ...（后续的代码部分）
 
-    # Create a download button
+# ...（后续的代码部分）
+
+try:
+    # ...（之前的代码部分）
+
     st.write("")
     if st.button('Generate'):
         temp1 = input.split(',')
@@ -77,13 +75,7 @@ try:
             else:
                 st.write(f'Wrong serial number: {i}')
 
-        # Generate download link
-        for j in range(len(begin_list)):
-            if begin_list[j] != final_list[j]:
-                href = f'<a href="data:application/pdf;base64,{pdf_list[j]}" download="{begin_list[j]}-{final_list[j]}.pdf">Download {begin_list[j]}-{final_list[j]}.pdf</a>'
-                st.markdown(href, unsafe_allow_html=True)
-            else:
-                href = f'<a href="data:application/pdf;base64,{pdf_list[j]}" download="{begin_list[j]}.pdf">Download {begin_list[j]}.pdf</a>'
-                st.markdown(href, unsafe_allow_html=True)
+        # ...（后续的代码部分）
+
 except Exception as e:
     st.error(e)
