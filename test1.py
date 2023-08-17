@@ -69,7 +69,7 @@ try:
             pdf = canvas.Canvas(f"{begin_num+i}.pdf")
         
             # 设置字体样式和大小
-            pdf.setFont("Times-Roman", 45)
+            pdf.setFont("Courier", 45)
         
             # 打开图像
             image = Image.open("medicapture-android-chrome-favicon_512x512.png")
