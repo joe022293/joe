@@ -22,9 +22,10 @@ try:
 
         merger = PdfFileMerger()
         tp=0
+        mode=0
         ModelName = ""
         if len(begin)==8:
-            # 提取前两位数字
+            mode=1
             begin_prefix = begin[:2]
             
             if begin_prefix == '42':
@@ -39,6 +40,7 @@ try:
                 #print("wrong")
                 tp=1
         elif len(begin)>=29:
+            mode=2
             begin_prefix = begin[13:16]
             if begin_prefix == '057':
                 ModelName = "MTS156"
@@ -133,8 +135,11 @@ try:
             pdf.drawString(text_x, text_y - 50*6.5, "Scan the QR Code to register your new")
             pdf.drawString(text_x, text_y - 50*6.5-20, f"MediCapture {ModelName}")
             pdf.drawString(text_x, text_y - 50*6.5-20*3, "or browse to the link below:")
-            pdf.drawString(text_x, text_y - 50*6.5-20*4, f"www.medicapture.com/register/?serial={begin_num+i}")
-        
+            if mode==1:
+                pdf.drawString(text_x, text_y - 50*6.5-20*4, f"www.medicapture.com/register/?serial={begin_num+i}")
+            elif mode==2:
+                pdf.drawString(text_x, text_y - 50*6.5-20*4, f"www.medicapture.com/register/?serial=")
+                pdf.drawString(text_x, text_y - 50*6.5-20*5, f"{begin_num+i}")
             pdf.drawImage("bottom.png", 100, 0, 500, 50)
         
         
