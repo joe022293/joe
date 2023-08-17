@@ -16,7 +16,7 @@ try:
             os.remove(file_path)  # 删除文件
     
     st.title('Registration QR codes')
-    input_i = st.text_input("Input serial numbers (e.g. 42220001,44230010-44230020,45210001)")
+    input_i = st.text_input("Input serial numbers or UDI (e.g. 42220001,44230010-44230020,45210001)")
     input=input_i.replace(" ", "")
     def create_pdf(begin,final):
 
