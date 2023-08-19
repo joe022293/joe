@@ -81,7 +81,30 @@ try:
                 box_size=10,  # 控制每个“盒子”的像素数
                 border=4,  # 控制边框的盒子数
             )
-            data = f"www.medicapture.com/register/?serial={begin_num+i}"
+            if mode==1:
+                data = f"www.medicapture.com/register/?serial={begin_num+i}"
+                if begin_prefix == '01' or begin_prefix == '02':
+                    data = f"www.medicapture.com/register/?serial=0{begin_num+i}"
+                else:
+                    data = f"www.medicapture.com/register/?serial={begin_num+i}"
+            elif mode==2:
+                data = f"www.medicapture.com/register/?serial=0{begin_num+i}"
+            elif mode==3:
+                if begin_num+i<10:
+                    data = f"www.medicapture.com/register/?serial=00{begin_num+i}"
+                elif begin_num+i<100:
+                    data = f"www.medicapture.com/register/?serial=0{begin_num+i}"
+                elif begin_num+i<1000:
+                    data = f"www.medicapture.com/register/?serial={begin_num+i}"
+
+
+
+
+
+
+
+
+            
             qr.add_data(data)
             qr.make(fit=True)
             # 生成图像
@@ -142,11 +165,15 @@ try:
             pdf.drawString(text_x, text_y - 50*6.5, "Scan the QR Code to register your new")
             pdf.drawString(text_x, text_y - 50*6.5-20, f"MediCapture {ModelName}")
             pdf.drawString(text_x, text_y - 50*6.5-20*3, "or browse to the link below:")
-            if mode==1 :
-                pdf.drawString(text_x, text_y - 50*6.5-20*4, f"www.medicapture.com/register/?serial={begin_num+i}")
+            if mode==1:
+                if begin_prefix == '01' or begin_prefix == '02':
+                    pdf.drawString(text_x, text_y - 50*6.5-20*4, f"www.medicapture.com/register/?serial=0{begin_num+i}")
+                else:
+                    pdf.drawString(text_x, text_y - 50*6.5-20*4, f"www.medicapture.com/register/?serial={begin_num+i}")
+                
             elif mode==2:
                 pdf.drawString(text_x, text_y - 50*6.5-20*4, f"www.medicapture.com/register/?serial=")
-                pdf.drawString(text_x, text_y - 50*6.5-20*5, f"{begin_num+i}")
+                pdf.drawString(text_x, text_y - 50*6.5-20*5, f"0{begin_num+i}")
             elif mode==3:
                 if begin_num+i<10:
                     pdf.drawString(text_x, text_y - 50*6.5-20*4, f"www.medicapture.com/register/?serial=00{begin_num+i}")
