@@ -236,7 +236,7 @@ try:
     if st.button('Generate'):
         temp1=input.split(',')
         for i in temp1:
-            if (len(i)==8 or len(i)>=29 or len(i)==3) and i.isdigit() and ((i[:2] in first_list and len(i_split[0])==8) or i[0:13]=='0100859151005' or len(i)==3):
+            if (len(i)==8 or len(i)>=29 or len(i)==3) and i.isdigit() and ((i[:2] in first_list and len(i)==8) or i[0:13]=='0100859151005' or len(i)==3):
                 begin=i
                 final=i
                 begin_list.append(begin)
