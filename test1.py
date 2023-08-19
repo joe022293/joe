@@ -61,6 +61,7 @@ try:
             else:
                 tp=1
         elif len(begin)==3:
+            mode=1
             ModelName="MTS101"
         #print("ModelName:", ModelName)
     
@@ -141,7 +142,7 @@ try:
             pdf.drawString(text_x, text_y - 50*6.5, "Scan the QR Code to register your new")
             pdf.drawString(text_x, text_y - 50*6.5-20, f"MediCapture {ModelName}")
             pdf.drawString(text_x, text_y - 50*6.5-20*3, "or browse to the link below:")
-            if mode==1:
+            if mode==1 :
                 pdf.drawString(text_x, text_y - 50*6.5-20*4, f"www.medicapture.com/register/?serial={begin_num+i}")
             elif mode==2:
                 pdf.drawString(text_x, text_y - 50*6.5-20*4, f"www.medicapture.com/register/?serial=")
