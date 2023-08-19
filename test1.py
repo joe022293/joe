@@ -61,7 +61,7 @@ try:
             else:
                 tp=1
         elif len(begin)==3:
-            mode=1
+            mode=3
             ModelName="MTS101"
         #print("ModelName:", ModelName)
     
@@ -147,6 +147,14 @@ try:
             elif mode==2:
                 pdf.drawString(text_x, text_y - 50*6.5-20*4, f"www.medicapture.com/register/?serial=")
                 pdf.drawString(text_x, text_y - 50*6.5-20*5, f"{begin_num+i}")
+            elif mode==3:
+                if begin_num+i<10:
+                    pdf.drawString(text_x, text_y - 50*6.5-20*4, f"www.medicapture.com/register/?serial=00{begin_num+i}")
+                elif begin_num+i<100:
+                    pdf.drawString(text_x, text_y - 50*6.5-20*4, f"www.medicapture.com/register/?serial=0{begin_num+i}")
+                elif begin_num+i<1000:
+                    pdf.drawString(text_x, text_y - 50*6.5-20*4, f"www.medicapture.com/register/?serial={begin_num+i}")
+            
             pdf.drawImage("bottom.png", 100, 0, 500, 50)
         
         
