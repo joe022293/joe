@@ -27,19 +27,27 @@ try:
         if len(begin)==8:
             mode=1
             begin_prefix = begin[:2]
-            
-            if begin_prefix == '42':
+
+            if begin_prefix == '36':
+                ModelName = "MVR360"
+            elif begin_prefix == '42':
                 ModelName = "MVR Lite"
+            elif begin_prefix == '43':
+                ModelName = "MVR435"
             elif begin_prefix == '44':
                 ModelName = "MVR Pro"
             elif begin_prefix == '45':
                 ModelName = "MVC Pro SDI to HDMI"
             elif begin_prefix == '46':
                 ModelName = "MVR"
+            elif begin_prefix == '47':
+                ModelName = "MVR460"
             elif begin_prefix == '01':
                 ModelName = "MTS101"
             elif begin_prefix == '02':
                 ModelName = "MTS156"
+            elif begin_prefix == '03':
+                ModelName = "MTR133"
             else:
                 #print("wrong")
                 tp=1
