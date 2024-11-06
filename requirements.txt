@@ -3,6 +3,3 @@ reportlab==3.6.0
 PyPDF2==1.26.0
 qrcode==7.3
 streamlit==1.24.0
-
-setuptools>=59.5.0
-wheel>=0.37.0
