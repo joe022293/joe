@@ -1,5 +1,6 @@
 reportlab==3.6.1
-Pillow==8.3.2
+Pillow==9.0.0
 PyPDF2==1.26.0
 qrcode==7.3
 streamlit==0.86.0
+pip==24.3.1
