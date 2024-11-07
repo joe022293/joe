@@ -1,7 +1,7 @@
 from reportlab.pdfgen import canvas
 from PIL import Image
 import qrcode
-from PyPDF2 import PdfFileMerger
+from PyPDF2 import PdfMerger
 import streamlit as st
 import base64
 import os
@@ -20,7 +20,7 @@ try:
     input=input_i.replace(" ", "")
     def create_pdf(begin,final):
 
-        merger = PdfFileMerger()
+        merger = PdfMerger()
         tp=0
         mode=0
         ModelName = ""
