@@ -33,17 +33,8 @@ try:
             elif begin_prefix == '42':
                 ModelName = "MVR Lite"
             elif begin_prefix == '43':
-                if begin[4]=='9':
-                    ModelName = "MVR435C"
-                elif begin[4]=='8':
-                    ModelName = "MVR435T"
-                elif begin[4]=='6':
-                    if begin[5]=='9':
-                        ModelName = "MVR436C"
-                    elif begin[5]=='8':
-                        ModelName = "MVR436T"
-                    else:
-                        ModelName = "MVR436"
+                if begin[4]=='6':
+                    ModelName = "MVR436"
                 else:
                     ModelName = "MVR435"
             elif begin_prefix == '44':
