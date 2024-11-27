@@ -33,7 +33,19 @@ try:
             elif begin_prefix == '42':
                 ModelName = "MVR Lite"
             elif begin_prefix == '43':
-                ModelName = "MVR435"
+                if begin[4]=='9':
+                    ModelName = "MVR435C"
+                elif begin[4]=='8':
+                    ModelName = "MVR435T"
+                elif begin[4]=='6':
+                    if begin[5]=='9':
+                        ModelName = "MVR436C"
+                    elif begin[5]=='8':
+                        ModelName = "MVR436T"
+                    else:
+                        ModelName = "MVR436"
+                else:
+                    ModelName = "MVR435"
             elif begin_prefix == '44':
                 ModelName = "MVR Pro"
             elif begin_prefix == '45':
@@ -41,7 +53,10 @@ try:
             elif begin_prefix == '46':
                 ModelName = "MVR"
             elif begin_prefix == '47':
-                ModelName = "MVR460"
+                if begin[4]=='5':
+                    ModelName = "MVR450"
+                else:
+                    ModelName = "MVR460"
             elif begin_prefix == '01':
                 ModelName = "MTS101"
             elif begin_prefix == '02':
