@@ -5,7 +5,7 @@ from PyPDF2 import PdfMerger
 import streamlit as st
 import base64
 import os
-first_list=['36','42','43','44','45','46','47','01','02','03']
+first_list=['36','42','43','44','45','46','47','01','02','03','04']
 folder_path = 'folder'
 try:
     # 遍历文件夹中的所有文件
