@@ -98,7 +98,7 @@ try:
                 border=4,  # 控制边框的盒子数
             )
             if mode==1:
-                if begin_prefix == '01' or  begin_prefix == '03' or begin_prefix == '04':
+                if begin_prefix == '01' or begin_prefix == '02' or begin_prefix == '03' or begin_prefix == '04':
                     data = f"www.medicapture.com/register/?serial=0{begin_num+i}"
                 else:
                     data = f"www.medicapture.com/register/?serial={begin_num+i}"
@@ -181,7 +181,7 @@ try:
             pdf.drawString(text_x, text_y - 50*6.5-20, f"MediCapture {ModelName}")
             pdf.drawString(text_x, text_y - 50*6.5-20*3, "or browse to the link below:")
             if mode==1:
-                if begin_prefix == '01' or begin_prefix == '02':
+                if begin_prefix == '01' or begin_prefix == '02' or begin_prefix == '03' or begin_prefix == '04':
                     pdf.drawString(text_x, text_y - 50*6.5-20*4, f"www.medicapture.com/register/?serial=0{begin_num+i}")
                 else:
                     pdf.drawString(text_x, text_y - 50*6.5-20*4, f"www.medicapture.com/register/?serial={begin_num+i}")
