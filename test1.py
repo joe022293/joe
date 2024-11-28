@@ -53,7 +53,12 @@ try:
             elif begin_prefix == '02':
                 ModelName = "MTS156"
             elif begin_prefix == '03':
-                ModelName = "MTR133"
+                if begin[4] == '0':
+                    ModelName = "MTR156"
+                elif begin[4] == '5':
+                    ModelName = "MTR133"
+                else:
+                    tp=1
             elif begin_prefix == '04':
                 ModelName = "MSP156"
             else:
