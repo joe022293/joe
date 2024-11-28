@@ -98,7 +98,7 @@ try:
                 border=4,  # 控制边框的盒子数
             )
             if mode==1:
-                if begin_prefix == '01' or begin_prefix == '02' or begin_prefix == '03' or begin_prefix == '04':
+                if begin_prefix == '01' or  begin_prefix == '03' or begin_prefix == '04':
                     data = f"www.medicapture.com/register/?serial=0{begin_num+i}"
                 else:
                     data = f"www.medicapture.com/register/?serial={begin_num+i}"
