@@ -256,7 +256,7 @@ try:
     if st.button('Generate'):
         temp1=input.split(',')
         for i in temp1:
-            if (len(i)==8 or len(i)>=29 or len(i)==3) and i.isdigit() and ((i[:2] in first_list and len(i)==8) or i[0:13]=='0100859151005' or len(i)==3):
+            if (len(i)==8 or len(i)>=29 or len(i)==3) and i.isdigit() and ((i[:2] in first_list and len(i)==8) or i[0:13]=='0100859151005' or len(i)==3) and tp==0:
                 begin=i
                 final=i
                 begin_list.append(begin)
@@ -264,7 +264,7 @@ try:
                 pdf_list.append(create_pdf(begin,final))
             elif '-' in i:
                 i_split=i.split('-')
-                if len(i_split) == 2 and i_split[0].isdigit() and i_split[1].isdigit() and ((len(i_split[0]) == 8 or len(i_split[0])>=29) and (len(i_split[1]) == 8 or len(i_split[1])>=29) and ((i_split[0][:4]==i_split[1][:4] and i_split[0][:2] in first_list and len(i_split[0])==8) or i_split[0][0:13]=='0100859151005') or (len(i_split[0])==3 and len(i_split[1])==3)):
+                if tp==0 and len(i_split) == 2 and i_split[0].isdigit() and i_split[1].isdigit() and ((len(i_split[0]) == 8 or len(i_split[0])>=29) and (len(i_split[1]) == 8 or len(i_split[1])>=29) and ((i_split[0][:4]==i_split[1][:4] and i_split[0][:2] in first_list and len(i_split[0])==8) or i_split[0][0:13]=='0100859151005') or (len(i_split[0])==3 and len(i_split[1])==3)):
                     if int(i_split[1])-int(i_split[0])<=200 and int(i_split[1])-int(i_split[0])>0:
                         begin=i_split[0]
                         final=i_split[1]
