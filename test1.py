@@ -30,6 +30,8 @@ try:
 
             if begin_prefix == '36':
                 ModelName = "MVR360"
+            elif begin_prefix == '41':
+                ModelName = "MVX441"
             elif begin_prefix == '42':
                 ModelName = "MVR Lite"
             elif begin_prefix == '43':
@@ -55,10 +57,16 @@ try:
             elif begin_prefix == '03':
                 if begin[4] == '5':
                     ModelName = "MTR133"
-                else:
+                elif begin[4] == '0':
                     ModelName = "MTR156"
+                elif begin[4] == '3':
+                    ModelName = "MTR245W"
+                    
             elif begin_prefix == '04':
-                ModelName = "MSP156"
+                if begin[4] == '0':
+                    ModelName = "MSP156"
+                elif begin[4] == '3':
+                    ModelName = "MSP245W"
             else:
                 #print("wrong")
                 tp=1
